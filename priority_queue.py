@@ -1,18 +1,19 @@
-""" 
+"""
 Implementação da priority queue com list ordenada
 """
+
 
 class Person:
     def __init__(self, name, priority):
         self.name = name
         self.priority = priority
-    
+
 
 class PriorityQueue:
     def __init__(self):
         self.pq = []
         self.length = 0
-    
+
     def push(self, person):
         if self.empty():
             self.pq.append(person)
@@ -25,20 +26,21 @@ class PriorityQueue:
                     flag_push = True
                     break
             if not flag_push:
-                #se entrou aqui é pq tem que inserir no final
+                # se entrou aqui é pq tem que inserir no final
                 self.pq.insert(len(self.pq), person)
-    
+
     def pop(self):
         if not self.empty():
             self.pq.pop(0)
 
     def empty(self):
         return len(self.pq) == 0
-    
+
     def show(self):
         for p in self.pq:
             print(f"Nome: {p.name}")
             print(f"Prioridade {p.priority}")
+
 
 p1 = Person("Guilherme", 28)
 p2 = Person("Catariana", 3)
