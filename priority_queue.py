@@ -8,14 +8,19 @@ class Person:
         self.name = name
         self.priority = priority
 
+    def __repr__(self):
+        return f"{self.name} - {self.priority}"
+
 
 class PriorityQueue:
     def __init__(self):
         self.pq = []
-        self.length = 0
+
+    def __repr__(self):
+        return f"{self.pq}"
 
     def push(self, person):
-        if self.empty():
+        if self.empty:
             self.pq.append(person)
         else:
             flag_push = False
@@ -30,16 +35,16 @@ class PriorityQueue:
                 self.pq.insert(len(self.pq), person)
 
     def pop(self):
-        if not self.empty():
+        if not self.empty:
             self.pq.pop(0)
 
+    @property
     def empty(self):
         return len(self.pq) == 0
 
     def show(self):
         for p in self.pq:
-            print(f"Nome: {p.name}")
-            print(f"Prioridade {p.priority}")
+            print(f"Nome: {p.name} - Prioridade: {p.priority}")
 
 
 p1 = Person("Guilherme", 28)
